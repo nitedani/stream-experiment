@@ -10,6 +10,8 @@ function createRandomWordStream() {
   return new Readable({
     read() {
       console.log("read createRandomWordStream");
+      console.log(process.memoryUsage());
+      
 
       setTimeout(() => {
         const randomIndex = Math.floor(Math.random() * randomWords.length);
