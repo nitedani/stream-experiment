@@ -14,6 +14,7 @@ function createRandomWordStream() {
       setTimeout(() => {
         const randomIndex = Math.floor(Math.random() * randomWords.length);
         const randomWord = randomWords[randomIndex];
+        console.log("push createRandomWordStream");
         this.push(`${randomWord}\n`);
       }, 100);
     },
@@ -53,6 +54,6 @@ server.on("request", (req, res) => {
   }, 1000);
 });
 
-server.listen(8080, () => {
-  console.log("Server listening on http://localhost:8080");
+server.listen(8081, () => {
+  console.log("Server listening on http://localhost:8081");
 });

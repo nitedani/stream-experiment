@@ -17,6 +17,9 @@ function createRandomWordStream() {
         this.push(`${randomWord}\n`);
       }, 100);
     },
+    destroy() {
+      console.log("destroy createRandomWordStream");
+    },
   });
 }
 
@@ -28,6 +31,9 @@ function createWordInverterTransformStream() {
       const invertedWord = chunk.toString().split("").reverse().join("");
       this.push(invertedWord);
       callback();
+    },
+    destroy() {
+      console.log("destroy createWordInverterTransformStream");
     },
   });
 }
@@ -46,6 +52,6 @@ server.on("request", (req, res) => {
   }, 1000);
 });
 
-server.listen(8080, () => {
-  console.log("Server listening on http://localhost:8080");
+server.listen(8081, () => {
+  console.log("Server listening on http://localhost:8081");
 });
